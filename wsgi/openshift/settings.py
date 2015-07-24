@@ -8,7 +8,6 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/1.6/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 import imp
 
@@ -65,22 +64,22 @@ MIDDLEWARE_CLASSES = (
 )
 
 # If you want configure the REDISCLOUD
-if 'REDISCLOUD_URL' in os.environ and 'REDISCLOUD_PORT' in os.environ and 'REDISCLOUD_PASSWORD' in os.environ:
-    redis_server = os.environ['REDISCLOUD_URL']
-    redis_port = os.environ['REDISCLOUD_PORT']
-    redis_password = os.environ['REDISCLOUD_PASSWORD']
-    CACHES = {
-        'default' : {
-            'BACKEND' : 'redis_cache.RedisCache',
-            'LOCATION' : '%s:%d'%(redis_server,int(redis_port)),
-            'OPTIONS' : {
-                'DB':0,
-                'PARSER_CLASS' : 'redis.connection.HiredisParser',
-                'PASSWORD' : redis_password,
-            }
-        }
-    }
-    MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',) + MIDDLEWARE_CLASSES + ('django.middleware.cache.FetchFromCacheMiddleware',)
+# if 'REDISCLOUD_URL' in os.environ and 'REDISCLOUD_PORT' in os.environ and 'REDISCLOUD_PASSWORD' in os.environ:
+#     redis_server = os.environ['REDISCLOUD_URL']
+#     redis_port = os.environ['REDISCLOUD_PORT']
+#     redis_password = os.environ['REDISCLOUD_PASSWORD']
+#     CACHES = {
+#         'default' : {
+#             'BACKEND' : 'redis_cache.RedisCache',
+#             'LOCATION' : '%s:%d'%(redis_server,int(redis_port)),
+#             'OPTIONS' : {
+#                 'DB':0,
+#                 'PARSER_CLASS' : 'redis.connection.HiredisParser',
+#                 'PASSWORD' : redis_password,
+#             }
+#         }
+#     }
+#     MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',) + MIDDLEWARE_CLASSES + ('django.middleware.cache.FetchFromCacheMiddleware',)
 
 
 ROOT_URLCONF = 'urls'
@@ -93,20 +92,18 @@ TEMPLATE_DIRS = (
 
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
-if ON_OPENSHIFT:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(os.environ['OPENSHIFT_DATA_DIR'], 'db.sqlite3'),
-        }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'HOST': $OPENSHIFT_MYSQL_DB_HOST,
+        'PORT': $OPENSHIFT_MYSQL_DB_PORT,
+        'NAME': 'jj',
+        'USER': 'adminS6XFAf3',
+        'PASSWORD' : '429x_qi_6niq',
     }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
+}
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
