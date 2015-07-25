@@ -7,11 +7,11 @@ body {
     background-color: #FFFFFF;
 }
 
-.splashscreen {
+#splashscreen {
     display: none;
 }
 
-[ng-cloak].splashscreen {
+[ng-cloak]#splashscreen {
     display: block !important;
 }
 
