@@ -11,9 +11,9 @@ packages = ['Django<=1.6',
             # 'pymongo',             # 'psycopg2',
            ]
 
-if 'REDISCLOUD_URL' in os.environ and 'REDISCLOUD_PORT' in os.environ and 'REDISCLOUD_PASSWORD' in os.environ:
-     packages.append('django-redis-cache')
-     packages.append('hiredis')
+# if 'REDISCLOUD_URL' in os.environ and 'REDISCLOUD_PORT' in os.environ and 'REDISCLOUD_PASSWORD' in os.environ:
+#      packages.append('django-redis-cache')
+#      packages.append('hiredis')
 
 setup(name='JJ', version='1.0',
       description='OpenShift Python-3.3 / Django-1.6 Community Cartridge based application',

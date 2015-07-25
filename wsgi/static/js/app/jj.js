@@ -1,5 +1,5 @@
   var app = angular.module("jjApp", []);
-  app.controller("mainController", ["$scope",
+  app.controller("MainController", ["$scope",
       function($scope) {      }
   ]);
 
