@@ -1,9 +1,10 @@
 /*
     main color #0399D7;
+    background color #012C3D;
  */
 
 body {
-    background: #2E2E2E;
+    background: #012C3D;
     padding-top: 60px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -128,7 +129,7 @@ body {
   padding-top: 30px;
   padding-bottom: 30px;
   color: #FFFFFF;
-  background: #2E2E2E;
+  background: #012C3D;
 }
 #footer a {
   color: #1B4657;
