@@ -2,7 +2,9 @@
   app.controller("MainController", ["$scope",
       function($scope) {      }
   ]);
-
+  app.controller("HeaderController", ["$scope",
+      function($scope) {      }
+  ]);
   var body = document.getElementsByTagName('body')[0];
 
   setTimeout(function() {
