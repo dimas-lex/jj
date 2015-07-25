@@ -3,7 +3,7 @@
  */
 
 body {
-    background: #FFFFFF;
+    background: #2E2E2E;
     padding-top: 60px;
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
@@ -122,3 +122,36 @@ body {
     }
 }
 /* End Splash screen */
+
+/* Footer */
+#footer {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  color: #FFFFFF;
+  background: #2E2E2E;
+}
+#footer a {
+  color: #1B4657;
+}
+#footer a:hover {
+  color: #013E57;
+}
+#footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 -7.5px;
+}
+#footer ul > li {
+  display: inline-block;
+  margin: 0 7.5px;
+}
+@media only screen and (min-width: 768px) {
+  #footer .social-icons {
+    font-size: 20px;
+  }
+}
+.form-control {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+/* End Footer */
