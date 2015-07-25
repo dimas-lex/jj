@@ -96,8 +96,8 @@ TEMPLATE_DIRS = (
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'HOST': $OPENSHIFT_MYSQL_DB_HOST,
-        'PORT': $OPENSHIFT_MYSQL_DB_PORT,
+        'HOST': os.environ.get('OPENSHIFT_MYSQL_DB_HOST'),
+        'PORT': os.environ.get('OPENSHIFT_MYSQL_DB_PORT'),
         'NAME': 'jj',
         'USER': 'adminS6XFAf3',
         'PASSWORD' : '429x_qi_6niq',
