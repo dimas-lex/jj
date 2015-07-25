@@ -1,6 +1,7 @@
 <!DOCTYPE HTML>
-<html manifest="">
-<head>
+<html manifest="" ng-app="jjApp">
+  <head>
+
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -9,18 +10,26 @@
 
 </head>
 <body>
-
-    <div id="splashscreen" class="sk-cube-grid">
-        <p> Loading, please wait...</p>
-      <div class="sk-cube sk-cube1"></div>
-      <div class="sk-cube sk-cube2"></div>
-      <div class="sk-cube sk-cube3"></div>
-      <div class="sk-cube sk-cube4"></div>
-      <div class="sk-cube sk-cube5"></div>
-      <div class="sk-cube sk-cube6"></div>
-      <div class="sk-cube sk-cube7"></div>
-      <div class="sk-cube sk-cube8"></div>
-      <div class="sk-cube sk-cube9"></div>
+  <div id="splashscreen">
+      <div class="sk-cube-grid"  ng-cloak>
+          <p> Loading, please wait...</p>
+        <div class="sk-cube sk-cube1"></div>
+        <div class="sk-cube sk-cube2"></div>
+        <div class="sk-cube sk-cube3"></div>
+        <div class="sk-cube sk-cube4"></div>
+        <div class="sk-cube sk-cube5"></div>
+        <div class="sk-cube sk-cube6"></div>
+        <div class="sk-cube sk-cube7"></div>
+        <div class="sk-cube sk-cube8"></div>
+        <div class="sk-cube sk-cube9"></div>
+      </div>
     </div>
+    <div ng-controller="MainController">
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+
+    <script src="/static/js/app/jj.js"></script>
+
 </body>
 </html>
