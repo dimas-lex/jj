@@ -1,7 +1,5 @@
 /*
-
     main color #0399D7;
-
  */
 
 body {
@@ -38,15 +36,17 @@ body {
 /* Splash screen */
 
 #splashscreen {
-    display: none;
+    -webkit-animation-name: fadeOut;
+    animation-name: fadeOut
 }
+
 #splashscreen[ng-cloak] {
     display: block !important;
 }
 .sk-cube-grid {
     width: 200px;
     height: 200px;
-    margin: 250px auto;
+    margin: 150px auto;
     color: #0399D7;
     font-family: helvetica, arial, verdana, sans-serif;
     font-size: 18px;
