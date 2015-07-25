@@ -32,10 +32,11 @@ body {
 }
 #top-header {
     padding: 10px 0;
+    background-color: #012C3D;
 }
 /* End Header */
-/* Splash screen */
 
+/* Splash screen */
 #splashscreen {
     -webkit-animation-name: fadeOut;
     animation-name: fadeOut
