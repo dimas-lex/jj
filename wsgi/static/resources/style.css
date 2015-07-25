@@ -11,7 +11,7 @@ body {
     display: none;
 }
 
-[ng-cloak]#splashscreen {
+#splashscreen[ng-cloak] {
     display: block !important;
 }
 
