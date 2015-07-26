@@ -22,14 +22,11 @@ JjApp.controller('CustomerListController', ['$scope', "dataExchangeService", '$h
         }];
 
         $scope.loadData = function() {
-            // $http.get('/rest/customers/').success(function(data) {
-            //     $scope.customers = data;
-            // });
         };
         $scope.$on('reloadCustomers', function() {
             $scope.loadData();
         });
-        $scope.loadData();
+        // $scope.loadData();
     }
 ])
 .directive('customerList',["Constants", function() {
