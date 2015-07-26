@@ -1,1 +1,4 @@
 mysql-python
+djangorestframework
+markdown
+django-filter
