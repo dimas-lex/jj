@@ -60,7 +60,5 @@ JjApp.controller('CustomerListController', ['$scope', "dataExchangeService", '$h
         //     '    </table>' +
         //     '</div>',
 
-        link: function(scope) {
-        }
     };
 }]);
