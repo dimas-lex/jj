@@ -5,7 +5,8 @@ from django.views.generic import TemplateView
 # from rest_framework.urlpatterns import format_suffix_patterns
 # admin.autodiscover()
 from views import get_customers
+
 urlpatterns = patterns('',
-    url(r'^rest/customer/$', get_customers),
+    # url(r'^rest/customer/$', get_customers),
     url(r'^$', 'views.index', name='index'),
 )

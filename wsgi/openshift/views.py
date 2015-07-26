@@ -1,9 +1,9 @@
 from django.shortcuts import render_to_response
-from django.http import HttpResponse, Http404
-from django.template.context import RequestContext
-from django.core import serializers
+# from django.http import HttpResponse, Http404
+# from django.template.context import RequestContext
+# from django.core import serializers
 
-from billing.models import *
+# from billing.models import *
 
 import json
 
@@ -11,9 +11,9 @@ def index(request):
      return render_to_response('home/index.html')
 
 
-def get_customers(self, request):
-    data = {'foo': 'bar', 'hello': 'world'}
-    return HttpResponse(json.dumps(data), content_type='application/json')
+# def get_customers(self, request):
+
+#     return JsonResponse({'foo': 'bar'})
 
 
 # def post(self, request):
