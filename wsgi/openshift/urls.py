@@ -4,7 +4,7 @@ from django.conf import settings
 
 from billing.views import CustomerListView
 from django.views.generic import TemplateView
-from rest_framework.urlpatterns import format_suffix_patterns
+# from rest_framework.urlpatterns import format_suffix_patterns
 
 # admin.autodiscover()
 
