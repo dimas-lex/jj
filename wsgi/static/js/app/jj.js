@@ -1,5 +1,3 @@
-var JjApp = angular.module("jjApp", []);
-
 JjApp.config(['$httpProvider',
     function($httpProvider) {
         $httpProvider.defaults.headers.common['X-CSRFToken'] = JjApp.csrf_token ;

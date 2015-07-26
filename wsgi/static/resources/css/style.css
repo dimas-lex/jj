@@ -38,14 +38,25 @@ body {
 /* End Header */
 
 /* Splash screen */
-#splashscreen {
+/*#splashscreen {
     -webkit-animation-name: fadeOut !important;
     animation-name: fadeOut!important;
+    display: none !important;
+}*/
+/*[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none;
 }
-
 #splashscreen[ng-cloak] {
     display: block !important;
 }
+*/
+#splashscreen[ng-cloak] {
+  display: block !important;
+}
+[ng-cloak] {
+    display: none;
+}
+
 .sk-cube-grid {
     width: 200px;
     height: 200px;

@@ -75,13 +75,13 @@
         <script src="/static/js/libs/bootstrap.min.js"></script>
         <script type="text/javascript">
             // Add the CSRF Token
-            // var JjApp = angular.module("jjApp", []);
+            var JjApp = angular.module("jjApp", []);
 
-            // JjApp.config(function($interpolateProvider) {
-            //     $interpolateProvider.startSymbol('{$');
-            //     $interpolateProvider.endSymbol('$}');
-            // });
-            // JjApp.csrf_token = '{{ csrf_token|escapejs }}';
+            JjApp.config(function($interpolateProvider) {
+                $interpolateProvider.startSymbol('{$');
+                $interpolateProvider.endSymbol('$}');
+            });
+            JjApp.csrf_token = '{{ csrf_token|escapejs }}';
 
         </script>
         <script  type="text/javascript" src="/static/js/app/jj.js"></script>
