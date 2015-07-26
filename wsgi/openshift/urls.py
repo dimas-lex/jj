@@ -8,5 +8,4 @@ from views import *
 urlpatterns = patterns('',
     url(r'^rest/customer/', get_customers),
     url(r'^$', 'views.index', name='index'),
-    url(r'^admin/', include(admin.site.urls)),
 )
