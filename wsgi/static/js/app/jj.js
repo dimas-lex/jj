@@ -46,6 +46,7 @@ JjApp.config(['$httpProvider',
         ];
     }
 ]);
+
 JjApp.controller("HeaderController", ["$scope",
     function($scope) {}
 ]);
