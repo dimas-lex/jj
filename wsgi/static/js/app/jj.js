@@ -1,5 +1,3 @@
-'use strict';
-
 JjApp.config(['$httpProvider',
     function($httpProvider) {
         $httpProvider.defaults.headers.common['X-CSRFToken'] = JjApp.csrf_token;
@@ -85,7 +83,7 @@ JjApp.factory('messageService', function($rootScope) {
 JjApp.controller("HeaderController", ["$scope", "dataExchangeService",
     function($scope) {}
 ]);
-JjApp.controller("MainController", ["$scope", "dataExchangeService",
+JjApp.controller("ErrorController", ["$scope",
     function($scope) {}
 ]);
 
@@ -95,4 +93,4 @@ setTimeout(function() {
     $(document.body).attr('ng-app', 'jjApp');
     angular.bootstrap(document, ['ng', 'jjApp']);
 
-}, 20);
+}, 200);

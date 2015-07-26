@@ -1,4 +1,3 @@
-angular.module('ng').filter('tel', function() {});
 JjApp.controller('CustomerListController', ['$scope', "dataExchangeService", '$http',
     function($scope) {
         $scope.customers = [{

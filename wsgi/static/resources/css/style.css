@@ -130,3 +130,7 @@ body {
     }
 }
 /* End Splash screen */
+
+#id_message_place {
+    margin: 20px 0 0 0;
+}

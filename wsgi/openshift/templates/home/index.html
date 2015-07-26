@@ -48,23 +48,24 @@
             <div class="sk-cube sk-cube8"></div>
             <div class="sk-cube sk-cube9"></div>
         </div>
-        <div class="container" ng-controller="MainController" ng-cloak="">
-            <div class="row">
-                    <div id="id_message_place" class=" container-fluid " data-alerts="alerts"
-                        data-titles="{&quot;warning&quot;: &quot;&lt;em&gt;Warning!&lt;/em&gt;&quot;}"
-                        data-ids="myid"
-                        data-fade="10000">
+        <div class="container" >
+            <div class="row" ng-controller="ErrorController">
+                <div id="id_message_place" class=" container-fluid " data-alerts="alerts"
+                    data-titles="{&quot;warning&quot;: &quot;&lt;em&gt;Warning!&lt;/em&gt;&quot;}"
+                    data-ids="myid"
+                    data-fade="10000">
                 </div>
             </div>
-            <div class="row">
+
+            <div class="row" >
                 <div class="col-md-3">
-                    <div ng-controller="CustomerController">
+                    <div ng-controller="CustomerController" ng-cloak="">
                       <div customer-form></div>
                     </div>
                 </div>
                 <div class="col-md-9">
 
-                        <div ng-controller="CustomerListController">
+                        <div ng-controller="CustomerListController" ng-cloak="">
                           <div customer-list></div>
                         </div>
                     </div>
@@ -79,6 +80,7 @@
         <script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
         <script  type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
         <script src="/static/js/libs/bootstrap.min.js"></script>
+
         <script type="text/javascript">
             // Add the CSRF Token
             var JjApp = angular.module("jjApp", []);
@@ -91,9 +93,11 @@
 
         </script>
         <script  type="text/javascript" src="/static/js/app/jj.js"></script>
-        <!-- // <script  type="text/javascript" src="/static/js/app/Constants.js"></script> -->
+
         <script  type="text/javascript" src="/static/js/app/controllers/CustomerController.js"></script>
         <script  type="text/javascript" src="/static/js/app/controllers/CustomerListController.js"></script>
+        <script  type="text/javascript" src="/static/js/app/controllers/ErrorController.js"></script>
+        <script  type="text/javascript" src="/static/js/app/controllers/HeaderController.js"></script>
         <script type="text/javascript" src="/static/js/libs/query.bsAlerts.min.js"></script>
 
         <!--[if lt IE 9]>
