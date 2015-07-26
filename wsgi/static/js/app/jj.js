@@ -54,11 +54,11 @@ JjApp.controller("MainController", ["$scope",
     function($scope) {}
 ]);
 
+ setTimeout(function() {
 
-var body = document.getElementsByTagName('body')[0];
-
-setTimeout(function() {
-    body.setAttribute('ng-app', 'jjApp');
+    $('#splashscreen').addClass('splashscreen_hide');
+     $(document.body). setAttribute('ng-app', 'jjApp');
+    // body.setAttribute('ng-app', 'jjApp');
     angular.bootstrap(body, ['ng', 'jjApp']);
 
 }, 2000);
