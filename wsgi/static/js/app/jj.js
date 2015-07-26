@@ -80,12 +80,6 @@ JjApp.factory('messageService', function($rootScope) {
     return messageService;
 });
 
-JjApp.controller("HeaderController", ["$scope", "dataExchangeService",
-    function($scope) {}
-]);
-JjApp.controller("ErrorController", ["$scope",
-    function($scope) {}
-]);
 
 setTimeout(function() {
     // Loading imitation
@@ -94,3 +88,21 @@ setTimeout(function() {
     angular.bootstrap(document, ['ng', 'jjApp']);
 
 }, 200);
+
+$.validator.setDefaults({
+    highlight: function(element) {
+        $(element).closest('.form-group').addClass('has-error');
+    },
+    unhighlight: function(element) {
+        $(element).closest('.form-group').removeClass('has-error');
+    },
+    errorElement: 'span',
+    errorClass: 'help-block',
+    errorPlacement: function(error, element) {
+        if (element.parent('.input-group').length) {
+            error.insertAfter(element.parent());
+        } else {
+            error.insertAfter(element);
+        }
+    }
+});

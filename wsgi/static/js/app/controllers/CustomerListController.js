@@ -1,24 +1,6 @@
-JjApp.controller('CustomerListController', ['$scope', "dataExchangeService", '$http',
-    function($scope, dataExchangeService, messageService, $http) {
-        $scope.customers = [{
-            first_name: 'Lucuma',
-            last_name: 'Doe',
-            email: 'Lucuma.Doe@gmail.com',
-            is_active: true,
-            balance: 10
-        }, {
-            first_name: 'John',
-            last_name: 'Doe',
-            email: 'John.Doe@gmail.com',
-            is_active: true,
-            balance: 10
-        }, {
-            first_name: 'Jane',
-            last_name: 'Doe',
-            email: 'Jane.Doe@gmail.com',
-            is_active: false,
-            balance: 10
-        }];
+JjApp.controller('CustomerListController', ['$scope', "dataExchangeService", '$http', '$localStorage',
+    function($scope, dataExchangeService, messageService, $http, $localStorage) {
+        $scope.customers = $localStorage.customers;
 
         $scope.loadData = function() {};
         $scope.$on('reloadCustomers', function() {
