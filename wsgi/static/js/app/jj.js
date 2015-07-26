@@ -58,6 +58,6 @@ setTimeout(function() {
     // Loading imitation
     $('#splashscreen').addClass('splashscreen_hide');
     $(document.body).attr('ng-app', 'jjApp');
-    angular.bootstrap(body, ['ng', 'jjApp']);
+    angular.bootstrap(document, ['ng', 'jjApp']);
 
 }, 2000);
