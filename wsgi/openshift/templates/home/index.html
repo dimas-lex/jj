@@ -5,10 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <link href="/home/dimas/code/jj/wsgi/static/resources/css/bootstrap.min.css" rel="stylesheet">
-        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"  rel="stylesheet" >
-        <link href="/home/dimas/code/jj/wsgi/static/resources/css/animate.min.css" rel="stylesheet">
-        <link href="/home/dimas/code/jj/wsgi/static/resources/css/style.css" rel="stylesheet">
+        <link href="/static/resources/css/bootstrap.min.css" rel="stylesheet">
+    <!--     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"  rel="stylesheet" > -->
+        <link href="/static/resources/css/animate.min.css" rel="stylesheet">
+        <link href="/static/resources/css/style.css" rel="stylesheet">
         <!--[if lt IE 9]>
         <script src="/static/js/libs/html5shiv.js"></script>
         <![endif]-->
@@ -48,20 +48,19 @@
             <div class="sk-cube sk-cube8"></div>
             <div class="sk-cube sk-cube9"></div>
         </div>
-
         <div class="container" ng-controller="MainController" ng-cloak="">
             <div class="row">
-                <div class="col-md-8">
-                    <h2>Customers</h2>
-                    <div>
-                      <label>Name:</label>
-                      <input type="text" ng-model="yourName" placeholder="Enter a name here">
-                      <hr>
-                      <h1>Hello {$yourName$}!</h1>
+                <div class="col-md-3">
+                    <div ng-controller="CustomerController">
+                      <div customer-form></div>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-9">
 
+                        <div ng-controller="CustomerListController">
+                          <div customer-list></div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <hr>
@@ -72,7 +71,7 @@
 
         <script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
         <script  type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="/home/dimas/code/jj/wsgi/static/js/libs/bootstrap.min.js"></script>
+        <script src="/static/js/libs/bootstrap.min.js"></script>
         <script type="text/javascript">
             // Add the CSRF Token
             var JjApp = angular.module("jjApp", []);
@@ -84,7 +83,11 @@
             JjApp.csrf_token = '{{ csrf_token|escapejs }}';
 
         </script>
-        <script  type="text/javascript" src="/home/dimas/code/jj/wsgi/static/js/app/jj.js"></script>
+        <script  type="text/javascript" src="/static/js/app/jj.js"></script>
+        <script  type="text/javascript" src="/static/js/app/Constants.js"></script>
+        <script  type="text/javascript" src="/static/js/app/controllers/CustomerController.js"></script>
+        <script  type="text/javascript" src="/static/js/app/controllers/CustomerListController.js"></script>
+
         <!--[if lt IE 9]>
         <script  type="text/javascript" src="/static/js/libs/ie10-viewport-bug-workaround.js"></script>
         <![endif]-->
