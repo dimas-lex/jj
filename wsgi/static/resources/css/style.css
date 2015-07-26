@@ -39,8 +39,8 @@ body {
 
 /* Splash screen */
 #splashscreen {
-    -webkit-animation-name: fadeOut;
-    animation-name: fadeOut
+    -webkit-animation-name: fadeOut !important;
+    animation-name: fadeOut!important;
 }
 
 #splashscreen[ng-cloak] {
