@@ -83,7 +83,7 @@
 
         <script type="text/javascript">
             // Add the CSRF Token
-            var JjApp = angular.module("jjApp", []);
+            var JjApp = angular.module("jjApp", ["dataExchangeService", 'messageService']);
 
             JjApp.config(function($interpolateProvider) {
                 $interpolateProvider.startSymbol('{$');
@@ -93,6 +93,7 @@
 
         </script>
         <script  type="text/javascript" src="/static/js/app/jj.js"></script>
+        <script  type="text/javascript" src="/static/js/libs/ngStore.js"></script>
 
         <script  type="text/javascript" src="/static/js/app/controllers/CustomerController.js"></script>
         <script  type="text/javascript" src="/static/js/app/controllers/CustomerListController.js"></script>

@@ -1,5 +1,5 @@
-JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', '$http', 'messageService',
-    function($scope, dataExchangeService, $http, messageService) {
+JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messageService', '$http',
+    function($scope, dataExchangeService, messageService, $http) {
         $scope.customer = {
             first_name: '',
             last_name: '',

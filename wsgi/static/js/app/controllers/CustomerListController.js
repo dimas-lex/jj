@@ -1,5 +1,5 @@
 JjApp.controller('CustomerListController', ['$scope', "dataExchangeService", '$http',
-    function($scope) {
+    function($scope, dataExchangeService, messageService, $http) {
         $scope.customers = [{
             first_name: 'Lucuma',
             last_name: 'Doe',
