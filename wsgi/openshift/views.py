@@ -5,14 +5,16 @@ from django.core import serializers
 
 from billing.models import *
 
+import json
+
 def index(request):
      return render_to_response('home/index.html')
 
 
 def get_customers(self, request):
-    # customers = Customer.objects.all()
-    # data = serializers.serialize('json', customers)
-    return HttpResponse({'success': True}, mimetype='application/json')
+    data = {'foo': 'bar', 'hello': 'world'}
+    return HttpResponse(json.dumps(data), content_type='application/json')
+
 
 # def post(self, request):
 
