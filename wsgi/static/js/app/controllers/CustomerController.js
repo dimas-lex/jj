@@ -15,7 +15,6 @@ JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messag
         $scope.addCustomer = function() {
             if ($scope.customerForm.$valid) {
                 console.log('addCustomer');
-
                 $localStorage.customers = $localStorage.customers || [];
                 $localStorage.customers.push($scope.customer);
 
