@@ -16,7 +16,7 @@ JjApp.controller('CustomerController', ['$scope', "dataExchangeService", '$http'
 ])
 .directive('customerForm', function() {
     return {
-        templateUrl: '/templates/forms/customer.html'
+        templateUrl: '/static/js/app/templates/forms/customer.html'
         // template: '<div class="panel-body">' +
         //     '    <h2>Customer Info</h2>' +
         //     '    <form' +

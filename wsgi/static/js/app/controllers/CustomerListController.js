@@ -34,7 +34,7 @@ JjApp.controller('CustomerListController', ['$scope', "dataExchangeService", '$h
 ])
 .directive('customerList',["Constants", function() {
     return {
-        templateUrl: '/templates/forms/customer_list.html'
+        templateUrl: '/static/js/app/templates/forms/customer_list.html'
         // template: '<div class="panel-body">' +
         //     '    <h2>Customer Info</h2>' +
         //     '    <table class="table table-striped table-bordered table-hover" >' +
