@@ -54,7 +54,9 @@ body {
   display: block !important;
 }
 #splashscreen {
-    display: none !important;
+    /*display: none !important;*/
+        -webkit-animation-name: fadeOut !important;
+    animation-name: fadeOut!important;
 }
 
 .sk-cube-grid {
