@@ -53,8 +53,8 @@ body {
 #splashscreen[ng-cloak] {
   display: block !important;
 }
-[ng-cloak] {
-    display: none;
+#splashscreen {
+    display: none !important;
 }
 
 .sk-cube-grid {
