@@ -52,6 +52,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'openshift.billing',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -62,24 +63,6 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
-
-# If you want configure the REDISCLOUD
-# if 'REDISCLOUD_URL' in os.environ and 'REDISCLOUD_PORT' in os.environ and 'REDISCLOUD_PASSWORD' in os.environ:
-#     redis_server = os.environ['REDISCLOUD_URL']
-#     redis_port = os.environ['REDISCLOUD_PORT']
-#     redis_password = os.environ['REDISCLOUD_PASSWORD']
-#     CACHES = {
-#         'default' : {
-#             'BACKEND' : 'redis_cache.RedisCache',
-#             'LOCATION' : '%s:%d'%(redis_server,int(redis_port)),
-#             'OPTIONS' : {
-#                 'DB':0,
-#                 'PARSER_CLASS' : 'redis.connection.HiredisParser',
-#                 'PASSWORD' : redis_password,
-#             }
-#         }
-#     }
-#     MIDDLEWARE_CLASSES = ('django.middleware.cache.UpdateCacheMiddleware',) + MIDDLEWARE_CLASSES + ('django.middleware.cache.FetchFromCacheMiddleware',)
 
 
 ROOT_URLCONF = 'urls'
