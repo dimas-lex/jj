@@ -1,6 +1,6 @@
 JjApp.config(['$httpProvider',
     function($httpProvider) {
-        $httpProvider.defaults.headers.common['X-CSRFToken'] = JjApp.csrf_token ;
+        $httpProvider.defaults.headers.common['X-CSRFToken'] = JjApp.csrf_token;
         $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
         $httpProvider.defaults.transformRequest = [
 
@@ -54,11 +54,10 @@ JjApp.controller("MainController", ["$scope",
     function($scope) {}
 ]);
 
- setTimeout(function() {
-
+setTimeout(function() {
+    // Loading imitation
     $('#splashscreen').addClass('splashscreen_hide');
-     $(document.body). setAttribute('ng-app', 'jjApp');
-    // body.setAttribute('ng-app', 'jjApp');
+    $(document.body).attr('ng-app', 'jjApp');
     angular.bootstrap(body, ['ng', 'jjApp']);
 
 }, 2000);
