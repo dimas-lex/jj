@@ -50,6 +50,13 @@
         </div>
         <div class="container" ng-controller="MainController" ng-cloak="">
             <div class="row">
+                    <div id="id_message_place" class=" container-fluid " data-alerts="alerts"
+                        data-titles="{&quot;warning&quot;: &quot;&lt;em&gt;Warning!&lt;/em&gt;&quot;}"
+                        data-ids="myid"
+                        data-fade="10000">
+                </div>
+            </div>
+            <div class="row">
                 <div class="col-md-3">
                     <div ng-controller="CustomerController">
                       <div customer-form></div>
@@ -87,6 +94,7 @@
         <script  type="text/javascript" src="/static/js/app/Constants.js"></script>
         <script  type="text/javascript" src="/static/js/app/controllers/CustomerController.js"></script>
         <script  type="text/javascript" src="/static/js/app/controllers/CustomerListController.js"></script>
+        <script type="text/javascript" src="/static/js/libs/query.bsAlerts.min.js"></script>
 
         <!--[if lt IE 9]>
         <script  type="text/javascript" src="/static/js/libs/ie10-viewport-bug-workaround.js"></script>

@@ -58,7 +58,29 @@ JjApp.factory('dataExchangeService', function($rootScope) {
 
     return dataExchangeService;
 });
-
+JjApp.factory('messageService', function($rootScope) {
+    var messageService = {
+        show: function(params) {
+            if (!angular.isObject(params)) {
+                params = {
+                    msg: params || 'Error',
+                    type: 'success'
+                }
+            }
+            $(document).trigger("add-alerts", [{
+                priority: params.type,
+                message: params.msg
+            }]);
+        },
+        error: function(msg) {
+            messageService.show({
+                msg: msg,
+                type: 'error'
+            });
+        }
+    };
+    return messageService;
+});
 
 JjApp.controller("HeaderController", ["$scope", "dataExchangeService",
     function($scope) {}
@@ -74,7 +96,3 @@ setTimeout(function() {
     angular.bootstrap(document, ['ng', 'jjApp']);
 
 }, 20);
-
-
-
-
