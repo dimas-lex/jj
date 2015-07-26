@@ -9,9 +9,7 @@ from django.views.generic import TemplateView
 # admin.autodiscover()
 
 urlpatterns = patterns('',
+    url(r'^rest/customer/', get_customers),
     url(r'^$', 'views.index', name='index'),
     url(r'^admin/', include(admin.site.urls)),
-)
-urlpatterns += format_suffix_patterns(
-    ( url(r'^rest/customer/$',  CustomerListView.as_view()), )
 )

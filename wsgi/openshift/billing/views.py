@@ -9,16 +9,12 @@ from django.template.context import RequestContext
 from billing.models import *
 from django.core import serializers
 
-class CustomerListView(APIView):
-    """
-        View class for managing and viewing Account
-    """
 
-    def get(self, request):
-        customers = Customer.objects.all()
-        serializer = CustomerSerializer(customers, many=True)
-        data = data.serialize('json', customers)
-        return serializer(data, mimetype='application/json')
+def get_customers(self, request):
+    customers = Customer.objects.all()
+    serializer = CustomerSerializer(customers, many=True)
+    data = data.serialize('json', customers)
+    return serializer(data, mimetype='application/json')
 
     # def post(self, request):
 
