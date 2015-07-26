@@ -8,9 +8,9 @@ import os
 packages = ['Django<=1.6',
             'static3',  # If you want serve the static files in the same server
             'mysql-connector-python',
-            'djangorestframework',
-            'markdown',
-            'django-filter',
+            # 'djangorestframework',
+            # 'markdown',
+            # 'django-filter',
             # 'pymongo',             # 'psycopg2',
            ]
 
