@@ -2,7 +2,8 @@ JjApp.factory('Customer', ['dataExchangeService', 'messageService', '$filter', '
     function(dataExchangeService, messageService, $filter, $localStorage) {
         function Customer(CustomerData) {
             if (CustomerData) {
-                this.setData(CustomerData):
+                this.setData(CustomerData);
+                this.meta = userData.meta;
             }
         };
 
@@ -38,10 +39,46 @@ JjApp.factory('Customer', ['dataExchangeService', 'messageService', '$filter', '
                         return true;
                     }
                 }
+            }
+        };
+        return Customer;
+    }
+]);
 
+JjApp.factory('CustomerManager', ['$http', '$localStorage', 'Customer','$filter',
+    function($http, $localStorage, Customer, $filter) {
+        var url = 'api/v1/customer/';
+        var CustomerManager = {
+            customers: [],
+            _load: function(id, deferred) {
+                var customers = $localStorage.customers;
+                if (customers) {
+                    customers = JSON.parse(customers);
+                }
+                this.customers = customers || [];
+            },
+            /* Public Methods */
+            getCustomer: function(id) {
+                this._load();
+                var customers = this.customers;
+                return $filter('getById')(customers, id);
+
+            },
+            /* Use this function in order to get instances of all the customers */
+            loadAllCustomers: function() {
+                this._load();
+                return this.customers;
+            },
+            create: function() {
+                return new Customer();
+            },
+            save: function() {
+                customers = angular.toJson(this.customers);
+
+                $localStorage.customers = customers;
             }
 
         };
-        return Customer;
+        return CustomerManager;
     }
 ]);

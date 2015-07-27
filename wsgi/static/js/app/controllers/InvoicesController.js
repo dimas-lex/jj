@@ -1,7 +1,6 @@
 JjApp.controller('InvoicesController', ['$scope', 'dataExchangeService', 'messageService', '$filter', '$localStorage',
 function($scope, dataExchangeService, messageService, $filter, $localStorage) {
 
-        console.log('$scope');
         $scope.invoices = [{
                 id: 1,
                 amount: Math.floor(Math.random() * (100 - 10 + 1)) + 10

@@ -111,17 +111,21 @@
             JjApp.csrf_token = '{{ csrf_token|escapejs }}';
 
         </script>
-        <script  type="text/javascript" src="/static/js/app/jj.js"></script>
+        <script type="text/javascript" src="/static/js/app/jj.js"></script>
 
-        <script  type="text/javascript" src="/static/js/app/controllers/CustomerController.js"></script>
-        <script  type="text/javascript" src="/static/js/app/controllers/CustomerListController.js"></script>
-        <script  type="text/javascript" src="/static/js/app/controllers/ErrorController.js"></script>
-        <script  type="text/javascript" src="/static/js/app/controllers/HeaderController.js"></script>
-        <script  type="text/javascript" src="/static/js/app/controllers/PaymentsController.js"></script>
-        <script  type="text/javascript" src="/static/js/app/controllers/InvoicesController.js"></script>
+        <script type="text/javascript" src="/static/js/app/models/Customer.js"></script>
+        <script type="text/javascript" src="/static/js/app/models/Invoices.js"></script>
+        <script type="text/javascript" src="/static/js/app/models/Payemnts.js"></script>
+
+        <script type="text/javascript" src="/static/js/app/controllers/CustomerController.js"></script>
+        <script type="text/javascript" src="/static/js/app/controllers/CustomerListController.js"></script>
+        <script type="text/javascript" src="/static/js/app/controllers/ErrorController.js"></script>
+        <script type="text/javascript" src="/static/js/app/controllers/HeaderController.js"></script>
+        <script type="text/javascript" src="/static/js/app/controllers/PaymentsController.js"></script>
+        <script type="text/javascript" src="/static/js/app/controllers/InvoicesController.js"></script>
 
         <!--[if lt IE 9]>
-        <script  type="text/javascript" src="/static/js/libs/ie10-viewport-bug-workaround.js"></script>
+        <script type="text/javascript" src="/static/js/libs/ie10-viewport-bug-workaround.js"></script>
         <![endif]-->
     </body>
 </html>

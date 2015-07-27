@@ -1,17 +1,7 @@
-JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messageService', '$filter', '$localStorage',
-    function($scope, dataExchangeService, messageService, $filter, $localStorage) {
-        $scope.createEmptyCustomer = function() {
-            return {
-                id: '',
-                first_name: '',
-                last_name: '',
-                email: '',
-                is_active: true,
-                balance: 0
-            };
-        };
-        $scope.customer = $scope.createEmptyCustomer();
+JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messageService', '$filter', '$localStorage', "CustomerManager",
+    function($scope, dataExchangeService, messageService, $filter, $localStorage, CustomerManager) {
 
+        $scope.customer = CustomerManager.create();
 
         $scope.$on('customer_selected', function(e, customer) {
             $scope.customer = customer;
@@ -22,22 +12,16 @@ JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messag
             $scope.markValid();
 
             if ($scope.customerForm.$valid) {
-                var customers = angular.fromJson($localStorage.customers);
-
-                if (!customers || !$.isArray(customers)) {
-                    customers = [];
-                }
+                var customers = CustomerManager.loadAllCustomers();
                 //new customer
                 $scope.customer.id = Utils.generateUID();
                 customers.push($scope.customer);
 
-                customers = angular.toJson(customers);
-
-                $localStorage.customers = customers;
+                CustomerManager.save();
 
                 dataExchangeService.post('reloadCustomers', $scope.customer);
                 messageService.show(msg)
-                $scope.customer = $scope.createEmptyCustomer();
+                $scope.customer = CustomerManager.create();
 
             } else {
                 $scope.markInvalid();
@@ -55,12 +39,13 @@ JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messag
 
                 } else {
                     // update
-                    var foundCustomer = $filter('getById')(customers, $scope.customer.id);
+                    var foundCustomer = CustomerManager.getCustomer($scope.customer.id);
 
                     if (foundCustomer) {
                         angular.copy($scope.customer, foundCustomer);
                         msg = 'The customer was updated.'
                     }
+                    CustomerManager.save();
                 }
 
                 customers = angular.toJson(customers);
@@ -69,7 +54,7 @@ JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messag
 
                 dataExchangeService.post('reloadCustomers', $scope.customer);
                 messageService.show(msg)
-                $scope.customer = $scope.createEmptyCustomer();
+                $scope.customer = CustomerManager.create();
 
             } else {
                 $scope.markInvalid();

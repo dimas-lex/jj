@@ -1,27 +1,25 @@
-JjApp.controller('CustomerListController', ['$scope', "dataExchangeService", 'messageService', '$timeout', '$localStorage',
-    function($scope, dataExchangeService, messageService, $timeout, $localStorage) {
+JjApp.controller('CustomerListController', ['$scope', "dataExchangeService", 'messageService', '$timeout', '$localStorage', "CustomerManager",
+    function($scope, dataExchangeService, messageService, $timeout, $localStorage, CustomerManager) {
 
         $scope.loadData = function(customer) {
-            var customers = $localStorage.customers;
-            if (customers) {
-                $scope.customers = JSON.parse(customers);
-            }
+            $scope.customers = CustomerManager.loadAllCustomers();
+
             if (customer) {
                 $scope.newCustomer = customer;
+
                 var timerProm = $timeout(function() {
                     angular.forEach(angular.element('tr.success'), function(value, key) {
                         var el = angular.element(value).first();
                         if (el) {
                             el.removeClass('success');
                         }
-
                     });
                     $timeout.cancel(timerProm);
                 }, 5000)
-            }
 
+            }
         };
-        $scope.onRowClick= function(customer){
+        $scope.onRowClick = function(customer) {
             dataExchangeService.post("customer_selected", customer);
         };
 
