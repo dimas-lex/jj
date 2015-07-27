@@ -2,7 +2,7 @@ JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messag
     function($scope, dataExchangeService, messageService, $http, $localStorage) {
         $scope.createEmptyCustomer = function() {
             return {
-                customer: Utils.generateUID(),
+                id: Utils.generateUID(),
                 first_name: '',
                 last_name: '',
                 email: '',
@@ -13,15 +13,26 @@ JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messag
         $scope.customer = $scope.createEmptyCustomer();
 
         $scope.addCustomer = function() {
-            if ($scope.customerForm.$valid) {
-                console.log('addCustomer');
-                $localStorage.customers = $localStorage.customers || [];
-                $localStorage.customers.push($scope.customer);
 
-                dataExchangeService.post('reloadCustomers');
-                messageService.error('test')
+            if ($scope.customerForm.$valid) {
+                console.log('addCustomer', $scope.customer);
+
+
+                var customers = angular.fromJson($localStorage.customers);
+
+                if (!customers || !$.isArray(customers)) {
+                    customers = [];
+                }
+                customers.push($scope.customer);
+                customers = angular.toJson(customers);
+                console.log(customers, typeof customers === 'string')
+                $localStorage.customers = customers;
+
+                // dataExchangeService.post('reloadCustomers');
+                // messageService.error('test')
 
             } else {
+                console.log('invalid')
                 angular
                     .element(':input.ng-invalid')
                     .first()
@@ -31,9 +42,8 @@ JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messag
             }
         }
     }
-])
-    .directive('customerForm', function() {
-        return {
-            templateUrl: '/static/js/app/templates/forms/customer.html'
-        };
-    });
+]).directive('customerForm', function() {
+    return {
+        templateUrl: '/static/js/app/templates/forms/customer.html'
+    };
+});

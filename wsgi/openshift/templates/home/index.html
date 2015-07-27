@@ -77,17 +77,17 @@
             </footer>
         </div>
 
-        <script  type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
-        <script  type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-        <script src="/static/js/libs/bootstrap.min.js"></script>
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.min.js"></script>
+        <script type="text/javascript" src="/static/js/libs/bootstrap.min.js"></script>
         <script type="text/javascript" src="/static/js/libs/query.bsAlerts.min.js"></script>
         <script type="text/javascript" src="/static/js/libs/jquery.validate.js"></script>
         <script type="text/javascript" src="/static/js/libs/additional-methods.js"></script>
-        <script type="text/javascript" src="/static/js/libs/ngStore.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ngStorage/0.3.6/ngStorage.min.js"></script>
+        <!-- // <script type="text/javascript" src="/static/js/libs/ngStorage.js"></script> -->
 
         <script type="text/javascript">
             // Add the CSRF Token
-            var JjApp = angular.module("jjApp", ["dataExchangeService", 'messageService']);
+            var JjApp = angular.module("jjApp", ['ngStorage']);
 
             JjApp.config(function($interpolateProvider) {
                 $interpolateProvider.startSymbol('{$');
@@ -103,7 +103,7 @@
         <script  type="text/javascript" src="/static/js/app/controllers/ErrorController.js"></script>
         <script  type="text/javascript" src="/static/js/app/controllers/HeaderController.js"></script>
 
-        <script  type="text/javascript" src="/static/js/app/Utils.js"></script>
+         <script  type="text/javascript" src="/static/js/app/Utils.js"></script>
         <!--[if lt IE 9]>
         <script  type="text/javascript" src="/static/js/libs/ie10-viewport-bug-workaround.js"></script>
         <![endif]-->
