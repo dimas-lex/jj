@@ -2,7 +2,7 @@ JjApp.controller('InvoicesController', ['$scope', 'dataExchangeService', 'messag
 function($scope, dataExchangeService, messageService, $filter, $localStorage) {
 
 
-    $scope.loadPaymentsForCustomer: function(customer) {
+    $scope.loadInvoicesForCustomer= function(customer) {
         var id = customer && customer.id;
         if (!id) {
             return;
@@ -17,7 +17,7 @@ function($scope, dataExchangeService, messageService, $filter, $localStorage) {
     }
     $scope.$on('customer_selected', , function(e, customer) {
         $scope.customer = customer;
-        $scope.loadPaymentsForCustomer(customer)
+        $scope.loadInvoicesForCustomer(customer)
     }));
 
 
