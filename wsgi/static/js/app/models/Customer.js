@@ -1,9 +1,9 @@
-JjApp.factory('Customer', ['dataExchangeService', 'messageService', '$filter', '$localStorage',
-    function(dataExchangeService, messageService, $filter, $localStorage) {
+JjApp.factory('Customer', ['dataExchangeService', 'messageService', '$filter', '$localStorage', 'InvoiceManager',
+    function(dataExchangeService, messageService, $filter, $localStorage, InvoiceManager) {
         function Customer(CustomerData) {
             if (CustomerData) {
                 this.setData(CustomerData);
-                this.meta = userData.meta;
+                this.meta = CustomerData.meta;
             }
         };
 
@@ -45,7 +45,7 @@ JjApp.factory('Customer', ['dataExchangeService', 'messageService', '$filter', '
     }
 ]);
 
-JjApp.factory('CustomerManager', ['$http', '$localStorage', 'Customer','$filter',
+JjApp.factory('CustomerManager', ['$http', '$localStorage', 'Customer', '$filter',
     function($http, $localStorage, Customer, $filter) {
         var url = 'api/v1/customer/';
         var CustomerManager = {

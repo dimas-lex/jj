@@ -1,5 +1,6 @@
-JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messageService', '$filter', '$localStorage', "CustomerManager",
-    function($scope, dataExchangeService, messageService, $filter, $localStorage, CustomerManager) {
+JjApp.controller('CustomerController',
+    ['$scope', 'dataExchangeService', 'messageService', '$filter', '$localStorage', "CustomerManager", "InvoiceManager", "PaymentManager",
+    function($scope, dataExchangeService, messageService, $filter, $localStorage, CustomerManager, InvoiceManager, PaymentManager) {
 
         $scope.customer = CustomerManager.create();
 
@@ -16,8 +17,15 @@ JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messag
                 //new customer
                 $scope.customer.id = Utils.generateUID();
                 customers.push($scope.customer);
-
                 CustomerManager.save();
+
+                InvoiceManager.create( $scope.customer.id );
+                InvoiceManager.create( $scope.customer.id )
+                InvoiceManager.save();
+
+                PaymentManager.create( $scope.customer.id );
+                PaymentManager.create( $scope.customer.id )
+                PaymentManager.save();
 
                 dataExchangeService.post('reloadCustomers', $scope.customer);
                 messageService.show(msg)

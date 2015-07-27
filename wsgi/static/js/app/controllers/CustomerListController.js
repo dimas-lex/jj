@@ -1,8 +1,21 @@
-JjApp.controller('CustomerListController', ['$scope', "dataExchangeService", 'messageService', '$timeout', '$localStorage', "CustomerManager",
-    function($scope, dataExchangeService, messageService, $timeout, $localStorage, CustomerManager) {
+JjApp.controller('CustomerListController', ['$scope', "dataExchangeService", 'messageService', '$timeout', '$localStorage', "CustomerManager", 'InvoiceManager', 'PaymentManager',
+    function($scope, dataExchangeService, messageService, $timeout, $localStorage, CustomerManager, InvoiceManager, PaymentManager) {
 
         $scope.loadData = function(customer) {
             $scope.customers = CustomerManager.loadAllCustomers();
+
+            $scope.customers.forEach(function(c) {
+                var invoices = InvoiceManager.loadAllByCustomers(c.id);
+                var payments = PaymentManager.loadAllByCustomers(c.id);
+                c.balance = invoices.reduce(function(previousValue, invoice) {
+                    return previousValue + invoice.amount;
+                }, 0);
+                c.balance = payments.reduce(function(previousValue, payment) {
+                    return previousValue - payment.amount;
+                }, c.balance );
+
+                var invoices = InvoiceManager.loadAllByCustomers(c.id);
+            })
 
             if (customer) {
                 $scope.newCustomer = customer;

@@ -1,30 +1,24 @@
-JjApp.controller('PaymentsController', ['$scope', 'dataExchangeService', 'messageService', '$filter', '$localStorage',
-function($scope, dataExchangeService, messageService, $filter, $localStorage) {
+JjApp.controller('PaymentsController', ['$scope', 'dataExchangeService', 'messageService', '$filter', '$localStorage', "PaymentManager",
+    function($scope, dataExchangeService, messageService, $filter, $localStorage, PaymentManager) {
 
+        $scope.loadPaymentsForCustomer = function(customer) {
+            console.log('PaymentsController', customer);
 
-    $scope.loadPaymentsForCustomer = function(customer) {
-        console.log(customer);
+            var id = customer && customer.id;
+            if (!id) {
+                return;
+            }
 
-        var id = customer && customer.id;
-        if (!id) {
-            return;
+            $scope.payments = PaymentManager.loadAllByCustomers(id);
         }
+        $scope.$on('customer_selected', function(e, customer) {
+            $scope.customer = customer;
+            $scope.loadPaymentsForCustomer(customer)
+        });
 
-        $scope.payments = [{
-            id: 1,
-            amount: Math.floor(Math.random() * (100 - 10 + 1)) + 10
-        }, {
-            id: 2,
-            amount:  Math.floor(Math.random() * (100 - 10 + 1)) + 10
-        }]
+
     }
-    $scope.$on('customer_selected',  function(e, customer) {
-        $scope.customer = customer;
-        $scope.loadPaymentsForCustomer(customer)
-    });
-
-
-}]).directive('paymentsList', function() {
+]).directive('paymentsList', function() {
     return {
         templateUrl: '/static/js/app/templates/forms/payments.html'
     };

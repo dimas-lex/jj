@@ -1,30 +1,15 @@
-JjApp.controller('InvoicesController', ['$scope', 'dataExchangeService', 'messageService', '$filter', '$localStorage',
-function($scope, dataExchangeService, messageService, $filter, $localStorage) {
-
-        $scope.invoices = [{
-                id: 1,
-                amount: Math.floor(Math.random() * (100 - 10 + 1)) + 10
-            }, {
-                id: 2,
-                amount: Math.floor(Math.random() * (100 - 10 + 1)) + 10
-            }];
+JjApp.controller('InvoicesController', ['$scope', 'dataExchangeService', 'messageService', '$filter', '$localStorage', 'InvoiceManager',
+    function($scope, dataExchangeService, messageService, $filter, $localStorage, InvoiceManager) {
 
         $scope.loadInvoicesForCustomer = function(customer) {
             var id = customer && customer.id;
             if (!id) {
                 return;
             }
-            $scope.invoices = [{
-                id: 1,
-                amount: Math.floor(Math.random() * (100 - 10 + 1)) + 10
-            }, {
-                id: 2,
-                amount: Math.floor(Math.random() * (100 - 10 + 1)) + 10
-            }];
-            console.log('11')
+
+            $scope.invoices = InvoiceManager.loadAllByCustomers(id);
         }
         $scope.$on('customer_selected', function(e, customer) {
-            console.log('test');
             $scope.customer = customer;
             $scope.loadInvoicesForCustomer(customer);
             return true;
@@ -38,4 +23,3 @@ function($scope, dataExchangeService, messageService, $filter, $localStorage) {
         templateUrl: '/static/js/app/templates/forms/invoices.html'
     };
 });
-console.log('$scope');

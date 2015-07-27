@@ -120,3 +120,16 @@ JjApp.filter('getById', function() {
         return null;
     }
 });
+JjApp.filter('getByCustomerId', function() {
+    return function(input, id) {
+        var res = [];
+        var i = 0,
+            len = input.length;
+        for (; i < len; i++) {
+            if (input[i].i_customer === id) {
+                res.push(input[i]);
+            }
+        }
+        return res;
+    }
+});
