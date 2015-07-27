@@ -22,6 +22,7 @@
         <div class="checkbox">
             <label><input type="checkbox" ng-model="customer.is_active" > Active</label>
         </div>
-        <button ng-click="addCustomer()" class="btn  btn-success glyphicon glyphicon-plus " > Add </button>
+        <button ng-click="addCustomer()" class="btn  btn-success glyphicon glyphicon-plus " >Add</button>
+        <button ng-click="updateCustomer()" class="btn  btn-info glyphicon glyphicon-edit " ng-if="customer.id ">Update</button>
     </form>
 </div>

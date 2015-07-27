@@ -61,7 +61,7 @@ JjApp.factory('messageService', function($rootScope) {
         show: function(params) {
             if (!angular.isObject(params)) {
                 params = {
-                    msg: params || 'Error',
+                    msg: params || 'Ok',
                     type: 'success'
                 }
             }
@@ -104,5 +104,19 @@ $.validator.setDefaults({
         } else {
             error.insertAfter(element);
         }
+    }
+});
+
+
+JjApp.filter('getById', function() {
+    return function(input, id) {
+        var i = 0,
+            len = input.length;
+        for (; i < len; i++) {
+            if (input[i].id === id) {
+                return input[i];
+            }
+        }
+        return null;
     }
 });
