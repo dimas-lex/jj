@@ -15,6 +15,7 @@ JjApp.controller('CustomerController', ['$scope', 'dataExchangeService', 'messag
 
         $scope.$on('customer_selected', function(e, customer) {
             $scope.customer = customer;
+            return true;
         });
         $scope.addCustomer = function() {
             var msg = 'New customer was added.';
