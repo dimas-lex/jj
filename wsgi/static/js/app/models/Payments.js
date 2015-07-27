@@ -69,7 +69,7 @@ JjApp.factory('PaymentManager', ['$http', '$localStorage', '$filter', 'Payment',
             loadAllByCustomers: function(id) {
                 var payments = this._load();
                 payments = $filter('getByCustomerId')(payments, id);
-                console.log('loadAllByCustomers', payments);
+
                 return payments;
             },
             create: function(iCustomer) {
@@ -84,7 +84,6 @@ JjApp.factory('PaymentManager', ['$http', '$localStorage', '$filter', 'Payment',
             },
             save: function() {
                 payments = angular.toJson(this.payments);
-                console.log(payments);
                 $localStorage.payments = payments;
             }
 

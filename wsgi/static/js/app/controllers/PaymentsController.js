@@ -2,8 +2,6 @@ JjApp.controller('PaymentsController', ['$scope', 'dataExchangeService', 'messag
     function($scope, dataExchangeService, messageService, $filter, $localStorage, PaymentManager) {
 
         $scope.loadPaymentsForCustomer = function(customer) {
-            console.log('PaymentsController', customer);
-
             var id = customer && customer.id;
             if (!id) {
                 return;
