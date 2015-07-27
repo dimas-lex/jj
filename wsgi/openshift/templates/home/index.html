@@ -64,22 +64,26 @@
                     </div>
                 </div>
                 <div class="col-md-9">
-
-                        <div ng-controller="CustomerListController" ng-cloak="">
-                          <div customer-list></div>
-                        </div>
+                    <div ng-controller="CustomerListController" ng-cloak="">
+                      <div customer-list></div>
+                    </div>
                     </div>
                 </div>
             </div>
             <div class="row" >
-                <div class="col-md-3">
+                <div class="col-md-4">
 
                 </div>
-                <div class="col-md-9">
-
-                        <div ng-controller="PaymentsController" ng-cloak="">
-                          <div customer-list></div>
-                        </div>
+                <div class="col-md-4">
+                    <div ng-controller="PaymentsController" ng-cloak="">
+                        <div payments-list></div>
+                    </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div ng-controller="InvoicesController" ng-cloak="">
+                        <div invoices-list></div>
+                    </div>
                     </div>
                 </div>
             </div>
@@ -116,6 +120,7 @@
         <script  type="text/javascript" src="/static/js/app/controllers/ErrorController.js"></script>
         <script  type="text/javascript" src="/static/js/app/controllers/HeaderController.js"></script>
         <script  type="text/javascript" src="/static/js/app/controllers/PaymentsController.js"></script>
+        <script  type="text/javascript" src="/static/js/app/controllers/InvoicesController.js"></script>
 
          <script  type="text/javascript" src="/static/js/app/Utils.js"></script>
         <!--[if lt IE 9]>
